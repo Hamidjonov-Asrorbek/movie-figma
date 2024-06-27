@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import pathImg from "../assets/Path.png";
+import shape from "../assets/Shape.png";
+import shape2 from "../assets/Shape2.png";
+import tv from "../assets/tv.png";
+import Bookmark from "../assets/Bookmark.png";
+import Oval from "../assets/Oval.png";
 
-const inter = Inter({ subsets: ["latin"] });
+const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +23,36 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={outfit.className}>
+        <header className="container w-[96px] ml-10">
+          <div className=" justify-center items-center flex flex-col bg-[#161D2F] pt-9 rounded-[12px]">
+            <div className="mai mb-20">
+              <Link href={"/"}>
+                <img src={pathImg.src} alt="Image" width={32} />
+              </Link>
+            </div>
+            <div className="children flex flex-col items-center mb-40 gap-10">
+              <Link href={"/"} className="link">
+                <img src={shape.src} alt="" />
+              </Link>
+              <Link href={"/movies"} className="link">
+                <img src={shape2.src} alt="" />
+              </Link>
+              <Link href={"/tv"} className="link">
+                <img src={tv.src} alt="" />
+              </Link>
+              <Link href={"/bookmarks"} className="link">
+                <img src={Bookmark.src} alt="" />
+              </Link>
+            </div>
+            {/* user logo */}
+            <div className="div">
+              <img src={Oval.src} className="mb-2" alt="user logo" />
+            </div>
+          </div>
+        </header>
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
