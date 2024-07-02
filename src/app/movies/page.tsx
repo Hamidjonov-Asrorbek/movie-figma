@@ -1,7 +1,15 @@
-import { CardItem } from "@/components/CartItem";
+"use server";
+import { getMovies } from "@/queries";
+import Image from "next/image";
 import React from "react";
+import movies from "../../assets/Shape2.png";
+import bookmark from "../../assets/Bookmark.png";
+import { CardItem } from "@/components/CartItem";
+import { Movie } from "@/types";
 
-const Page = () => {
+async function Page() {
+  const request = await getMovies();
+  console.log(request);
   return (
     <section>
       <div className="container pt-5 pb-10">
@@ -25,24 +33,15 @@ const Page = () => {
           />
         </label>
         <h1 className="text-3xl mt-10 mb-8">Movies</h1>
-        <div className="grid gap-10 grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {/* card item */}
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
+          {request?.docs?.map((movie: Movie) => (
+            <CardItem data={movie} key={movie.id} />
+          ))}
         </div>
       </div>
     </section>
   );
-};
+}
 
 export default Page;
