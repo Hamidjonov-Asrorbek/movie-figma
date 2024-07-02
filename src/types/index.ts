@@ -3,6 +3,9 @@ export type Movie = {
   name?: string;
   alternativeName: string;
   description?: string;
+  rating?: {
+    imdb: string | number;
+  };
   year?: number;
   type: string;
   poster?: {

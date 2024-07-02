@@ -19,6 +19,7 @@ export function MovieItem({ data }: { data: Movie }) {
     poster,
     backdrop,
     description,
+    rating,
   } = data;
   return (
     <>
@@ -60,9 +61,9 @@ export function MovieItem({ data }: { data: Movie }) {
         <div className="modal-box">
           <h3 className="font-bold text-lg">{name ?? alternativeName}</h3>
           <p className="py-4">
-            {year} | {type}
+            {year ?? 2023} | {type} | {rating?.imdb ?? "5"}
           </p>
-          <p className="py-4">
+          <p className="pb-4">
             {description ??
               "Хороший фильм для просмотра. Смотрите и наслаждайтесь"}
           </p>
