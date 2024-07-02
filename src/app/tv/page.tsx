@@ -1,4 +1,4 @@
-import { CardItem } from "@/components/CartItem";
+import { CardItem } from "@/components/MovieItem";
 import React from "react";
 
 const Page = () => {

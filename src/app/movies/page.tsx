@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import movies from "../../assets/Shape2.png";
 import bookmark from "../../assets/Bookmark.png";
-import { CardItem } from "@/components/CartItem";
+import { MovieItem } from "@/components/MovieItem";
 import { Movie } from "@/types";
 
 async function Page() {
@@ -36,7 +36,7 @@ async function Page() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {/* card item */}
           {request?.docs?.map((movie: Movie) => (
-            <CardItem data={movie} key={movie.id} />
+            <MovieItem data={movie} key={movie.id} />
           ))}
         </div>
       </div>

@@ -5,7 +5,7 @@ import slide3 from "../assets/slide3.png";
 import movies from "../assets/Shape2.png";
 import bookmark from "../assets/Bookmark.png";
 import cardImg from "../assets/cart-img.png";
-import { CardItem } from "@/components/CartItem";
+import { CardItem } from "@/components/MovieItem";
 
 export default function Home() {
   return (

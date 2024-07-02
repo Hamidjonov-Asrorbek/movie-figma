@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-[#10141F] h-full">
       <body className={outfit.className}>
         <div className="mx-auto flex">
           <header className="w-[96px] ml-10">
