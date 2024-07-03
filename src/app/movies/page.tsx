@@ -8,7 +8,7 @@ import { MovieItem } from "@/components/MovieItem";
 import { Movie } from "@/types";
 
 async function Page() {
-  const request = await getMovies();
+  const request = await getMovies("movie");
   console.log(request);
   return (
     <section>

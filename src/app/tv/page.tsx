@@ -1,7 +1,10 @@
-import { CardItem } from "@/components/MovieItem";
+import { MovieItem } from "@/components/MovieItem";
+import { getMovies } from "@/queries";
+import { Movie } from "@/types";
 import React from "react";
 
-const Page = () => {
+async function Page() {
+  const request = await getMovies("tv-series");
   return (
     <section>
       <div className="container pt-5 pb-10">
@@ -25,24 +28,15 @@ const Page = () => {
           />
         </label>
         <h1 className="text-3xl mt-10 mb-8">TV Series</h1>
-        <div className="grid gap-10 grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {/* card item */}
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
+          {request?.docs?.map((movie: Movie) => (
+            <MovieItem data={movie} key={movie.id} />
+          ))}
         </div>
       </div>
     </section>
   );
-};
+}
 
 export default Page;

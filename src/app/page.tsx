@@ -4,10 +4,14 @@ import slide2 from "../assets/slide2.png";
 import slide3 from "../assets/slide3.png";
 import movies from "../assets/Shape2.png";
 import bookmark from "../assets/Bookmark.png";
-import cardImg from "../assets/cart-img.png";
-import { CardItem } from "@/components/MovieItem";
+import { Movie } from "@/types";
+import { getTranding } from "@/queries";
+import { TrandingItem } from "@/components/TrandingItem";
 
-export default function Home() {
+export default async function Home() {
+  const request = await getTranding();
+  console.log(request);
+
   return (
     <section>
       <div className="container pt-5 pb-10">
@@ -80,20 +84,11 @@ export default function Home() {
         </div>
         {/* Recommended for you */}
         <h1 className="text-3xl mt-10 mb-8">Recommended for you</h1>
-        <div className="grid gap-10 grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {/* card item */}
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
+          {request?.docs?.map((movie: Movie) => (
+            <TrandingItem data={movie} key={movie.id} />
+          ))}
         </div>
       </div>
     </section>
