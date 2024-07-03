@@ -68,16 +68,19 @@ export function MovieItem({ data }: { data: Movie }) {
               "Хороший фильм для просмотра. Смотрите и наслаждайтесь"}
           </p>
 
-          <Link
-            target="blank"
-            href={`https://www.kinopoisk.ru/film/${id}`}
-            className="btn btn-info"
-          >
-            Watch 📽
-          </Link>
           <div className="modal-action ">
-            <form method="dialog">
+            <form
+              method="dialog"
+              className="w-full flex items-center justify-center gap-5"
+            >
               {/* if there is a button in form, it will close the modal */}
+              <Link
+                target="blank"
+                href={`https://www.kinopoisk.ru/film/${id}`}
+                className="btn btn-info"
+              >
+                Watch 📽
+              </Link>
               <button className="btn">Close ❌</button>
             </form>
           </div>
