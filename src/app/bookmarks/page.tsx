@@ -1,4 +1,3 @@
-import { CardItem } from "@/components/MovieItem";
 import React from "react";
 
 const Page = () => {
@@ -25,21 +24,7 @@ const Page = () => {
           />
         </label>
         <h1 className="text-3xl mt-10 mb-8">Bookmarked Movies</h1>
-        <div className="grid gap-10 grid-cols-4">
-          {/* card item */}
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
-        </div>
+        <div className="grid gap-10 grid-cols-4">{/* card item */}</div>
       </div>
     </section>
   );

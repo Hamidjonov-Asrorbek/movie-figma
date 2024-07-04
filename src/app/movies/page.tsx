@@ -1,9 +1,6 @@
 "use server";
 import { getMovies } from "@/queries";
-import Image from "next/image";
 import React from "react";
-import movies from "../../assets/Shape2.png";
-import bookmark from "../../assets/Bookmark.png";
 import { MovieItem } from "@/components/MovieItem";
 import { Movie } from "@/types";
 
